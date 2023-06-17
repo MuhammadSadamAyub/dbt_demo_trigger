@@ -177,7 +177,8 @@ phonecallhistory_to_delete as
 fact_memberphonecalhistory as 
 (
   select * from fact_memberphonecalhistory_union mph
-  where FactMemberPhoneCallHistoryKey not in ( select FactMemberPhoneCallHistoryKey from phonecallhistory_to_delete )
+  where FactMemberPhoneCallHistoryKey not in
+   ( select FactMemberPhoneCallHistoryKey from phonecallhistory_to_delete )
   
 )
 
