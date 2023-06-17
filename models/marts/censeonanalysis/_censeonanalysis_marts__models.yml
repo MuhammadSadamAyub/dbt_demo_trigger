@@ -1,0 +1,10 @@
+
+version: 2
+
+models:
+    - name: fact_memberphonecallhistory
+      description: 'fact member phone history'
+    - name: fact_memberaccesshistory
+      description: 'fact member access update'
+ 
+ 

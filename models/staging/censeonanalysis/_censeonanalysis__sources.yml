@@ -1,0 +1,21 @@
+
+version: 2
+
+sources:
+    - name: censeoanalysis
+      tables:
+        - name: fact_memberaccesshistory
+        - name: memberplan
+        - name: phonecallhistory
+        - name: dim_virtususer
+        - name: phonecallstatus
+        - name: dim_user
+        - name: dimaccessmethod
+        - name: fact_memberphonecallhistory
+        - name: dim_date
+        - name: dim_callcode
+
+
+
+
+   

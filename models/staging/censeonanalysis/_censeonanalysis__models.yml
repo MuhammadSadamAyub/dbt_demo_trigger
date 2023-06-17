@@ -1,0 +1,18 @@
+
+version: 2
+
+models:
+    - name: stg_censeonanalysis__fact_memberhistory
+      description: '{{ doc("doc_censeonanalysis_fact_memberaccess_histroy") }}'
+      columns:
+          - name: FactMemberAccessHistoryKey
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+
+    - name: stg_censeonanalysis__src_fact_memberphonecallhistory
+      description: '{{ doc("doc_censeonanalysis__fact_memberphonecallhistory") }}'  
+      
+
+ 

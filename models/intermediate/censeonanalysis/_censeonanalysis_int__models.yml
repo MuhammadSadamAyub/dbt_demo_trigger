@@ -1,0 +1,22 @@
+
+version: 2
+
+models:
+    - name: int_censeonanalysis__phonecallhistory__u1
+      description: '{{ doc("doc_int_censeonanalysis__phonecallhistory__U1") }}'
+    - name: int_censeonanalysis__phonecallhistory__src
+      description: '{{ doc("doc_int_censeonanalysis__phonecallhistory__src") }}' 
+    - name: int_censeonanalysis__fact_memberhistory
+      description: '{{ doc("doc_censeonanalysis_fact_memberaccess_histroy") }}'
+      columns:
+          - name: FactMemberAccessHistoryKey
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+
+    - name: int_censeonanalysis__phonecallhistory
+      description: '{{ doc("doc_censeonanalysis__phonecallhistory") }}'   
+      
+
+ 
