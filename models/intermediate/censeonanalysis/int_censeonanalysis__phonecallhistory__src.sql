@@ -40,7 +40,7 @@ select
 		select 
 		x.FactMemberAccessHistoryKey
 		, x.PhoneCallHistoryId
-		, COALESCE(cc.CallCodeKey, x.Resulting_CallCodeKey, (SELECT cc.CallCodeKey FROM {{ source('censeoanalysis', 'dim_callcode') }} WHERE cc.CallCodeID = -1) ) AS CallCodeKey
+		, COALESCE(cc.CallCodeKey, x.Resulting_CallCodeKey, (SELECT CallCodeKey FROM {{ source('censeoanalysis', 'dim_callcode') }} WHERE CallCodeID = -1 limit 1) ) AS CallCodeKey
 		, x.CallDateKey
 		, x.CallTimeKey
 		, x.PhoneCallStatusId

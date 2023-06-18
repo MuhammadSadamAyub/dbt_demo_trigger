@@ -3,6 +3,12 @@ version: 2
 
 models:
     - name: censeoanalysis__factmemberphonecallhistory
-      description: 'censeoanalysis__factmemberphonecallhistory'
+      description: '{{ doc("doc_censeoanalysis__factmemberphonecallhistory") }}'
+      columns:
+          - name: FACTMEMBERPHONECALLHISTORYKEY
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
    
  

@@ -4,6 +4,9 @@ version: 2
 models:
     - name: fact_memberphonecallhistory
       description: 'fact member phone history'
+      config:
+        meta: {surrogate_key: true}
+      
     - name: fact_memberaccesshistory
       description: 'fact member access update'
  

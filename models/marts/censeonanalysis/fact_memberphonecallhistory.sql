@@ -1,22 +1,34 @@
 with fact_memberphonecallhistory_src as (
 
 select 
-{{ dbt_utils.star(from=ref('stg_censeonanalysis__src_fact_memberphonecallhistory'), except=['CallCodeKey','CallDateKey'
-   ,'CallTimeKey','PhoneCallStatusId','MemberPhoneId','SchedulerUserKey','MemberPlanId','IsOutboundCall','ETLUpdateTS','ETLHashbytes',
-   'CreatedDate','OutreachId','UserKey','AccessMethodKey','FactMemberAccessHistoryKey']) }},
+  	
+  T."FACTMEMBERPHONECALLHISTORYKEY",
+  T."PHONECALLHISTORYID",
+ 
+  T."CONTACTPURPOSE",
+  T."ISFIRSTCALL",
+  T."ISFIRSTCALLRESOLVED",
+  T."ISSCHEDULERGIVENCREDIT",
+  T."DIMMEMBERPHONECALLHISTORYKEY",
+  T."HASUCCXMATCH",
 
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.CallCodeKey ELSE  T.CallCodeKey END ) AS CallCodeKey,
+  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.CallDateKey ELSE  T.CallDateKey END ) AS CallDateKey,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.CallTimeKey ELSE  T.CallTimeKey END ) AS CallTimeKey,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.PhoneCallStatusId ELSE  T.PhoneCallStatusId END ) AS PhoneCallStatusId,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.MemberPhoneId ELSE  T.MemberPhoneId END ) AS MemberPhoneId,
- ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.SchedulerUserKey ELSE  T.SchedulerUserKey END ) AS SchedulerUserKey,
+  
+  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.SchedulerUserKey ELSE  T.SchedulerUserKey END ) AS SchedulerUserKey,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.MemberPlanId ELSE  T.MemberPlanId END ) AS MemberPlanId,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.IsOutboundCall ELSE  T.IsOutboundCall END ) AS IsOutboundCall,
+  T."ETLINSERTTS",
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  CURRENT_DATE() ELSE  T.ETLUpdateTS END ) AS ETLUpdateTS,
+
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.ETLHashbytes ELSE  T.ETLHashbytes END ) AS ETLHashbytes,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.CreatedDate ELSE  T.CreatedDate END ) AS CreatedDate,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.OutreachId ELSE  T.OutreachId END ) AS OutreachId,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.UserKey ELSE  T.UserKey END ) AS UserKey,
+
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.AccessMethodKey ELSE  T.AccessMethodKey END ) AS AccessMethodKey,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.FactMemberAccessHistoryKey  ELSE  T.FactMemberAccessHistoryKey END ) AS FactMemberAccessHistoryKey
 
@@ -45,11 +57,19 @@ update_fact_memberphonecalhistory as
 (
 
 select 
-{{ dbt_utils.star(from=ref('stg_censeonanalysis__src_fact_memberphonecallhistory'), except=['CallCodeKey','CallDateKey'
-   ,'CallTimeKey','PhoneCallStatusId','MemberPhoneId','SchedulerUserKey','MemberPlanId','IsOutboundCall','ETLUpdateTS','ETLHashbytes',
-   'CreatedDate','OutreachId','UserKey','AccessMethodKey','FactMemberAccessHistoryKey']) }},
+ 	
+  T."FACTMEMBERPHONECALLHISTORYKEY",
+  T."PHONECALLHISTORYID",
+ 
+  T."CONTACTPURPOSE",
+  T."ISFIRSTCALL",
+  T."ISFIRSTCALLRESOLVED",
+  T."ISSCHEDULERGIVENCREDIT",
+  T."DIMMEMBERPHONECALLHISTORYKEY",
+  T."HASUCCXMATCH",
 
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.CallCodeKey ELSE  T.CallCodeKey END ) AS CallCodeKey,
+  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.CallDateKey ELSE  T.CallDateKey END ) AS CallDateKey,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.CallTimeKey ELSE  T.CallTimeKey END ) AS CallTimeKey,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.PhoneCallStatusId ELSE  T.PhoneCallStatusId END ) AS PhoneCallStatusId,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.MemberPhoneId ELSE  T.MemberPhoneId END ) AS MemberPhoneId,
@@ -57,6 +77,7 @@ select
   ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.SchedulerUserKey ELSE  T.SchedulerUserKey END ) AS SchedulerUserKey,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.MemberPlanId ELSE  T.MemberPlanId END ) AS MemberPlanId,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.IsOutboundCall ELSE  T.IsOutboundCall END ) AS IsOutboundCall,
+  T."ETLINSERTTS",
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  CURRENT_DATE() ELSE  T.ETLUpdateTS END ) AS ETLUpdateTS,
 
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.ETLHashbytes ELSE  T.ETLHashbytes END ) AS ETLHashbytes,
@@ -82,11 +103,19 @@ update_fact_memberphonecalhistory_1 as
 (
 
 select 
-{{ dbt_utils.star(from=ref('stg_censeonanalysis__src_fact_memberphonecallhistory'), except=['CallCodeKey','CallDateKey'
-   ,'CallTimeKey','PhoneCallStatusId','MemberPhoneId','SchedulerUserKey','MemberPlanId','IsOutboundCall','ETLUpdateTS','ETLHashbytes',
-   'CreatedDate','OutreachId','UserKey','AccessMethodKey','FactMemberAccessHistoryKey']) }},
+	
+  T."FACTMEMBERPHONECALLHISTORYKEY",
+  T."PHONECALLHISTORYID",
+ 
+  T."CONTACTPURPOSE",
+  T."ISFIRSTCALL",
+  T."ISFIRSTCALLRESOLVED",
+  T."ISSCHEDULERGIVENCREDIT",
+  T."DIMMEMBERPHONECALLHISTORYKEY",
+  T."HASUCCXMATCH",
 
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.CallCodeKey ELSE  T.CallCodeKey END ) AS CallCodeKey,
+  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.CallDateKey ELSE  T.CallDateKey END ) AS CallDateKey,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.CallTimeKey ELSE  T.CallTimeKey END ) AS CallTimeKey,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.PhoneCallStatusId ELSE  T.PhoneCallStatusId END ) AS PhoneCallStatusId,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.MemberPhoneId ELSE  T.MemberPhoneId END ) AS MemberPhoneId,
@@ -94,6 +123,7 @@ select
   ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.SchedulerUserKey ELSE  T.SchedulerUserKey END ) AS SchedulerUserKey,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.MemberPlanId ELSE  T.MemberPlanId END ) AS MemberPlanId,
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.IsOutboundCall ELSE  T.IsOutboundCall END ) AS IsOutboundCall,
+  T."ETLINSERTTS",
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  CURRENT_DATE() ELSE  T.ETLUpdateTS END ) AS ETLUpdateTS,
 
  ( CASE WHEN S.PhoneCallHistoryId IS NOT NULL THEN  S.ETLHashbytes ELSE  T.ETLHashbytes END ) AS ETLHashbytes,
@@ -121,8 +151,26 @@ select * from {{ ref('int_censeonanalysis__phonecallhistory__src') }}
 update_phonecallhistory__src_int as 
 (
     select 
-    {{ dbt_utils.star(from=ref('int_censeonanalysis__phonecallhistory__src'), except=['IsInsert']) }},
-    (Case when T.FactMemberAccessHistoryKey is not null then 0 else S.IsInsert end) as IsInsert
+    S."FACTMEMBERACCESSHISTORYKEY",
+  S."PHONECALLHISTORYID",
+  S."CALLCODEKEY",
+  S."CALLDATEKEY",
+  S."CALLTIMEKEY",
+  S."PHONECALLSTATUSID",
+  S."MEMBERPHONEID",
+  S."SCHEDULERUSERKEY",
+  S."MEMBERPLANID",
+  S."ISOUTBOUNDCALL",
+  S."CREATEDDATE",
+  S."OUTREACHID",
+  S."USERKEY",
+  S."ETLHASHBYTES",
+  S."USERID",
+  S."PHONENUMBER",
+  S."TODELETE",
+  S."ACCESSMETHODID",
+  S."ACCESSMETHODKEY",
+    (Case when T.FactMemberAccessHistoryKey is not null then 0 else null end) as IsInsert
     from phonecallhistory__src_int S left join update_fact_memberphonecalhistory_1 T
     on T.FactMemberAccessHistoryKey = S.FactMemberAccessHistoryKey
       AND T.PhoneCallHistoryId = S.PhoneCallHistoryId
@@ -139,17 +187,30 @@ phonecallhistory__src as
 insert_fact_memberphonecalhistory as 
 (
   SELECT
-	S.FactMemberAccessHistoryKey, 
-    S.PhoneCallHistoryId,
-     S.CallCodeKey, S.CallDateKey, S.CallTimeKey, S.PhoneCallStatusId, S.MemberPhoneId,
-    S.SchedulerUserKey, S.MemberPlanId, S.IsOutboundCall, 
-    CURRENT_DATE() as ETLInsertTS , CURRENT_DATE() as ETLUpdateTS , S.ETLHashbytes
+       {{ increment_sequence() }} as FACTMEMBERPHONECALLHISTORYKEY,
+	   S.PhoneCallHistoryId,
+	  null as CONTACTPURPOSE,
+	  false as ISFIRSTCALL,
+	  false as ISFIRSTCALLRESOLVED,
+	  FALSE as ISSCHEDULERGIVENCREDIT,
+	  null as DIMMEMBERPHONECALLHISTORYKEY,
+      FALSE as HASUCCXMATCH,
+     S.CallCodeKey,
+	 S.CallDateKey,
+	 S.CallTimeKey,
+	 S.PhoneCallStatusId, 
+	 S.MemberPhoneId,
+     S.SchedulerUserKey
+	 , S.MemberPlanId, 
+	 S.IsOutboundCall, 
+    CURRENT_DATE() as ETLInsertTS 
+	, CURRENT_DATE() as ETLUpdateTS , 
+	 S.ETLHashbytes
 	, S.CreatedDate
 	, S.OutreachId
 	, S.UserKey
 	, S.AccessMethodKey
-    , FALSE as ISSCHEDULERGIVENCREDIT
-    , FALSE as HASUCCXMATCH
+   	,S.FactMemberAccessHistoryKey
 	FROM phonecallhistory__src S
 	WHERE S.IsInsert = 1
 
