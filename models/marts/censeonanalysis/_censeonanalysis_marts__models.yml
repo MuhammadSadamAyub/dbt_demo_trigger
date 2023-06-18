@@ -3,11 +3,27 @@ version: 2
 
 models:
     - name: fact_memberphonecallhistory
-      description: 'fact member phone history'
+      description: '{{ doc("doc_fact_phone_call_history") }}'
       config:
         meta: {surrogate_key: true}
-      
+      columns:
+          - name: FACTMEMBERPHONECALLHISTORYKEY
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null  
+  
     - name: fact_memberaccesshistory
-      description: 'fact member access update'
+      description: '{{ doc("doc_fact_memberaccesshistory") }}'
+      columns:
+          - name: FACTMEMBERPHONECALLHISTORYKEY
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null  
+          - name: MEMBERCALLHISTORYID
+            description: "MEMBERCALLHISTORYID not null"
+            tests:
+                - not_null  
  
  

@@ -33,5 +33,18 @@ on-run-start: "{{ generate_sequences() }}"
 # using the `{{ config(...) }}` macro.
 models:
   phone_history:
-    # Applies to all files under models/example/
+    staging:
+      censeonanalysis:
+        +schema: intermediate
+        materialized: table
+    intermediate:
+      censeonanalysis:
+        +schema: intermediate
+        materialized: table
+    marts:
       materialized: table
+      fog:
+        +schema: fog
+      censeonanalysis:
+        +schema: censeonanalysis_fact 
+      
