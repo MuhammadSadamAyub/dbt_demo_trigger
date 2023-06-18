@@ -179,7 +179,25 @@ update_phonecallhistory__src_int as
 phonecallhistory__src as 
 (
     select 
-    {{ dbt_utils.star(from=ref('int_censeonanalysis__phonecallhistory__src'), except=['IsInsert']) }},
+     "FACTMEMBERACCESSHISTORYKEY",
+  "PHONECALLHISTORYID",
+  "CALLCODEKEY",
+  "CALLDATEKEY",
+  "CALLTIMEKEY",
+  "PHONECALLSTATUSID",
+  "MEMBERPHONEID",
+  "SCHEDULERUSERKEY",
+  "MEMBERPLANID",
+  "ISOUTBOUNDCALL",
+  "CREATEDDATE",
+  "OUTREACHID",
+  "USERKEY",
+  "ETLHASHBYTES",
+  "USERID",
+  "PHONENUMBER",
+  "TODELETE",
+  "ACCESSMETHODID",
+  "ACCESSMETHODKEY",
     (Case when IsInsert is null then 1 else IsInsert end) as IsInsert
     from update_phonecallhistory__src_int 
 ),

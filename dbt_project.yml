@@ -36,11 +36,11 @@ models:
     staging:
       censeonanalysis:
         +schema: intermediate
-        materialized: table
+        materialized: ephemeral
     intermediate:
       censeonanalysis:
         +schema: intermediate
-        materialized: table
+        materialized: ephemeral
     marts:
       materialized: table
       fog:
