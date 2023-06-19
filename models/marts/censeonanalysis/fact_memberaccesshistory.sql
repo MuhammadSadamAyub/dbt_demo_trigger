@@ -47,7 +47,7 @@ mah.AccessMethodKey,
     AND am.AccessMethodId = 4
 	WHERE 
 	 cc.CallCodeID IN ( 389, -1, -2 )
-	AND fpc.CallDateKey >= 20191118	  --- :BackDateKey
+	AND fpc.CallDateKey >= {{ var("backdatekey") }} 	  --- :BackDateKey
 
 )
 select * from fact_memberphonecalhistory

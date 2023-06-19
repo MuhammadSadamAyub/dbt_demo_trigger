@@ -25,6 +25,10 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 on-run-start: "{{ generate_sequences() }}"
 
+vars:
+  backdatekey: 20200101
+  backdate : 1/1/2020
+  
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 

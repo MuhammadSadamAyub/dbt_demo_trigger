@@ -4,7 +4,7 @@ with source_phonecallhistory__phonecallhistoryIds as (
 SELECT pch.PhoneCallHistoryId
 FROM {{ source('censeoanalysis', 'phonecallhistory') }}  pch
 INNER JOIN {{ source('censeoanalysis', 'memberplan') }}  mp ON mp.MemberPlanId = pch.MemberPlanId
-WHERE CAST(pch.CreateDate AS DATE) >= CAST('2018-06-11' AS DATE)
+WHERE CAST(pch.CreateDate AS DATE) >= CAST('{{ var("backdate") }}' AS DATE)
 AND mp.PlanId != 37
 ),
 phonecallhistory__phonecallhistory as 

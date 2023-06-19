@@ -250,7 +250,7 @@ phonecallhistory_to_delete as
     AND T.PhoneCallHistoryId = S.PhoneCallHistoryId
     WHERE T.PhoneCallHistoryId = 0 -- fake record inside of Target
     AND T.FactMemberAccessHistoryKey > 0
-    AND T.CallDateKey >= 20191118	  --- :BackDateKey
+    AND T.CallDateKey >= {{ var("backdatekey") }} 	  --- :BackDateKey
     AND s.CreatedDate IS NULL 
 ),
 fact_memberphonecalhistory as 

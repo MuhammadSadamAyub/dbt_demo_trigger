@@ -14,7 +14,7 @@ with source_fact_memberaccesshistory as (
 	, mx.CallTimeKey
 	, mx.SchedulerUserKey
     from {{ ref('stg_censeonanalysis__fact_memberhistory') }} mx 
-    where mx.CallDateKey >= 20191118  -- backdatekey
+    where mx.CallDateKey >= {{ var("backdatekey") }}  -- backdatekey
 
 
 ),
